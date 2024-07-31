@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Health</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="font-sans bg-gray-100">
+    <header class="bg-purple-800 text-white py-4">
+        <nav class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Women's Health</a>
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="hover:text-purple-200">Home</a></li>
+                <li><a href="health-topics.html" class="hover:text-purple-200">Health Topics</a></li>
+                <li><a href="wellness-resources.html" class="hover:text-purple-200">Wellness Resources</a></li>
+                <li><a href="expert-advice.html" class="hover:text-purple-200">Expert Advice</a></li>
+                <li><a href="about-us.html" class="hover:text-purple-200">About Us</a></li>
+                <li><a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700">Sign Up</a></li>
+                <li><a href="#" class="bg-white text-purple-800 px-4 py-2 rounded-full hover:bg-purple-100">Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8">Health Topics</h1>
+        
+        <div class="mb-8">
+            <input type="text" id="topic-search" placeholder="Search health topics..." class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="health-topics-grid">
+            <div class="bg-white rounded-lg shadow-md p-6" data-topic="reproductive-health">
+                <h2 class="text-2xl font-semibold mb-4">Reproductive Health</h2>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Menstrual Health</li>
+                    <li>Contraception</li>
+                    <li>Fertility</li>
+                    <li>Pregnancy</li>
+                </ul>
+                <button class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 read-more">Read More</button>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6" data-topic="mental-health">
+                <h2 class="text-2xl font-semibold mb-4">Mental Health</h2>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Stress Management</li>
+                    <li>Anxiety</li>
+                    <li>Depression</li>
+                    <li>Self-care</li>
+                </ul>
+                <button class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 read-more">Read More</button>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6" data-topic="physical-health">
+                <h2 class="text-2xl font-semibold mb-4">Physical Health</h2>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Nutrition</li>
+                    <li>Exercise</li>
+                    <li>Sleep</li>
+                    <li>Preventive Care</li>
+                </ul>
+                <button class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 read-more">Read More</button>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6" data-topic="chronic-conditions">
+                <h2 class="text-2xl font-semibold mb-4">Chronic Conditions</h2>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Endometriosis</li>
+                    <li>Polycystic Ovary Syndrome (PCOS)</li>
+                    <li>Breast Cancer</li>
+                    <li>Osteoporosis</li>
+                </ul>
+                <button class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 read-more">Read More</button>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6" data-topic="sexual-health">
+                <h2 class="text-2xl font-semibold mb-4">Sexual Health</h2>
+                <ul class="list-disc list-inside mb-4">
+                    <li>STI Prevention</li>
+                    <li>Sexual Wellness</li>
+                    <li>Menopause</li>
+                    <li>Libido and Intimacy</li>
+                </ul>
+                <button class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 read-more">Read More</button>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6" data-topic="womens-rights">
+                <h2 class="text-2xl font-semibold mb-4">Women's Rights in Healthcare</h2>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Access to Healthcare</li>
+                    <li>Reproductive Rights</li>
+                    <li>Gender Bias in Medicine</li>
+                    <li>Advocacy and Empowerment</li>
+                </ul>
+                <button class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 read-more">Read More</button>
+            </div>
+        </div>
+
+        <div id="topic-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full">
+            <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+                <div class="mt-3 text-center">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title"></h3>
+                    <div class="mt-2 px-7 py-3" id="modal-content">
+                 
+                    </div>
+                    <div class="items-center px-4 py-3">
+                        <button id="close-modal" class="px-4 py-2 bg-purple-600 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-300">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12">
+            <h2 class="text-3xl font-bold mb-6">Health Statistics</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4">Prevalence of Health Issues</h3>
+                    <canvas id="healthIssuesChart"></canvas>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4">Age Distribution of Breast Cancer</h3>
+                    <canvas id="breastCancerChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12">
+            <h2 class="text-3xl font-bold mb-6">Latest Research</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-4">Recent Studies in Women's Health</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>New treatments for endometriosis show promising results</li>
+                    <li>Study reveals link between stress and fertility issues</li>
+                    <li>Advancements in early detection of ovarian cancer</li>
+                    <li>Research highlights importance of personalized nutrition for women's health</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-purple-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">About Us</h4>
+                    <p>Women's Health is dedicated to empowering women with knowledge and support for their health and well-being.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-purple-200">Home</a></li>
+                        <li><a href="health-topics.html" class="hover:text-purple-200">Health Topics</a></li>
+                        <li><a href="wellness-resources.html" class="hover:text-purple-200">Wellness Resources</a></li>
+                        <li><a href="expert-advice.html" class="hover:text-purple-200">Expert Advice</a></li>
+                        <li><a href="about-us.html" class="hover:text-purple-200">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Connect With Us</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://wa.me/254707214135?text=Hello%20Ivy,%20I'm%20interested%20in%20your%20web%20development%20services" class="hover:text-purple-200">Whatsapp</a></li>
+                        <li><a href="https://twitter.com/messages/compose?@i_kimenj" class="hover:text-purple-200">Twitter</a></li>
+                        <li><a href="https://ig.me/m/ivy_kimenju" class="hover:text-purple-200">Instagram</a></li>
+                        <li><a href="https://ig.me/m/ivy_kimenju" class="hover:text-purple-200">Instagram</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Contact Information</h4>
+                    <p>Tom Mboya Street, Nairobi City, 00100</p>
+                    <p>Phone: +254 707214135</p>
+                    <p>Email: naomi23wangari@gmail.com</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-purple-700 text-center">
+                <p>&copy; <b>IWK</b> 2024 Women's Health. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Search functionality
+        const topicSearch = document.getElementById('topic-search');
+        const healthTopicsGrid = document.getElementById('health-topics-grid');
+
+        topicSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const topics = healthTopicsGrid.querySelectorAll('[data-topic]');
+
+            topics.forEach(topic => {
+                const topicName = topic.getAttribute('data-topic').toLowerCase();
+                if (topicName.includes(searchTerm)) {
+                    topic.style.display = 'block';
+                } else {
+                    topic.style.display = 'none';
+                }
+            });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('topic-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+        const closeModal = document.getElementById('close-modal');
+        const readMoreButtons = document.querySelectorAll('.read-more');
+
+        readMoreButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const topic = this.closest('[data-topic]').getAttribute('data-topic');
+                const title = this.closest('[data-topic]').querySelector('h2').textContent;
+                modalTitle.textContent = title;
+                modalContent.innerHTML = getTopicContent(topic);
+                modal.classList.remove('hidden');
+            });
+        });
+
+        closeModal.addEventListener('click', function() {
+            modal.classList.add('hidden');
+        });
+
+        function getTopicContent(topic) {
+            const baseStyles = `
+<style>
+    .topic-content {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h4 {
+        color: #2c3e50;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        font-size: 24px;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    ul {
+        margin-left: 20px;
+        margin-bottom: 15px;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    .info-box {
+        background-color: #e8f4f8;
+        border-left: 4px solid #3498db;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+
+    .highlight {
+        background-color: #fffacd;
+        padding: 2px 4px;
+        border-radius: 3px;
+    }
+
+    .button {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+        background-color: #2980b9;
+    }
+
+    @media (max-width: 600px) {
+        .topic-content {
+            padding: 15px;
+        }
+
+        h4 {
+            font-size: 20px;
+        }
+    }
+</style>
+`;
+    switch(topic) {
+        case 'reproductive-health':
+            return baseStyles + `
+                <div class="topic-content">
+                    <h4>Menstrual Health</h4>
+                    <p>Understanding your menstrual cycle is crucial for overall reproductive health. Regular cycles typically range from 21 to 35 days. The menstrual cycle consists of four main phases: menstruation, the follicular phase, ovulation, and the luteal phase. Each phase is characterized by hormonal changes that affect the body in various ways.</p>
+                    <div class="info-box">Symptoms like severe pain, heavy bleeding, or irregular cycles should be discussed with a healthcare provider as they may indicate underlying conditions such as endometriosis, PCOS, or thyroid disorders.</div>
+
+                    <h4>Contraception</h4>
+                    <p>There are numerous contraception options available, each with its own benefits and considerations:</p>
+                    <ul>
+                        <li>Hormonal methods: Pills, patches, injections, vaginal rings</li>
+                        <li>Barrier methods: Male and female condoms, diaphragms, cervical caps</li>
+                        <li>Long-acting reversible contraceptives (LARCs): IUDs (hormonal and non-hormonal), implants</li>
+                        <li>Permanent methods: Tubal ligation, vasectomy</li>
+                        <li>Natural family planning methods: Fertility awareness-based methods</li>
+                    </ul>
+                    <p>Efficacy, side effects, convenience, and personal health factors should be considered when choosing a method. Consult with a healthcare provider to find the best option for your individual needs.</p>
+
+                    <h4>Fertility and Conception</h4>
+                    <p>Fertility is influenced by various factors including age, overall health, and lifestyle choices. To optimize fertility:</p>
+                    <ul>
+                        <li>Understand your menstrual cycle and ovulation patterns</li>
+                        <li>Maintain a healthy diet rich in folic acid, iron, and other essential nutrients</li>
+                        <li>Exercise regularly, but avoid excessive physical strain</li>
+                        <li>Manage stress through relaxation techniques or counseling</li>
+                        <li>Avoid smoking, excessive alcohol consumption, and recreational drugs</li>
+                        <li>Consider preconception health checks and genetic counseling</li>
+                    </ul>
+                    <div class="info-box">If you have concerns about fertility or have been trying to conceive for over a year (or 6 months if over 35), consult a fertility specialist.</div>
+
+                    <h4>Pregnancy and Prenatal Care</h4>
+                    <p>Prenatal care is essential for a healthy pregnancy and includes:</p>
+                    <ul>
+                        <li>Regular check-ups and screenings</li>
+                        <li>Proper nutrition and prenatal vitamins</li>
+                        <li>Safe exercise routines</li>
+                        <li>Avoiding harmful substances (alcohol, tobacco, certain medications)</li>
+                        <li>Managing chronic health conditions</li>
+                        <li>Monitoring fetal development</li>
+                    </ul>
+                    <p>Be aware of warning signs such as severe nausea, vaginal bleeding, or decreased fetal movement, and don't hesitate to contact your healthcare provider with any concerns.</p>
+
+                    <h4>Reproductive Health Conditions</h4>
+                    <p>Several conditions can affect reproductive health:</p>
+                    <ul>
+                        <li>Polycystic Ovary Syndrome (PCOS)</li>
+                        <li>Endometriosis</li>
+                        <li>Uterine fibroids</li>
+                        <li>Pelvic Inflammatory Disease (PID)</li>
+                        <li>Cervical dysplasia</li>
+                        <li>Ovarian cysts</li>
+                    </ul>
+                    <p>Regular gynecological check-ups, including Pap smears and pelvic exams, are crucial for early detection and management of these conditions.</p>
+
+                    <h4>Menopause and Perimenopause</h4>
+                    <p>Menopause, typically occurring between ages 45-55, marks the end of the reproductive years. Perimenopause, the transition period, can last several years and may involve symptoms such as irregular periods, hot flashes, mood changes, and vaginal dryness. Management options include:</p>
+                    <ul>
+                        <li>Hormone replacement therapy (HRT)</li>
+                        <li>Non-hormonal medications for specific symptoms</li>
+                        <li>Lifestyle modifications (diet, exercise, stress management)</li>
+                        <li>Alternative therapies (acupuncture, herbal remedies)</li>
+                    </ul>
+                    <div class="info-box">Discuss the benefits and risks of different management strategies with your healthcare provider to find the best approach for you.</div>
+                </div>
+            `;
+
+        case 'mental-health':
+            return baseStyles + `
+                <div class="topic-content">
+                    <h4>Stress Management</h4>
+                    <p>Chronic stress can have serious health implications. Effective stress management techniques include:</p>
+                    <ul>
+                        <li>Regular exercise</li>
+                        <li>Meditation and mindfulness practices</li>
+                        <li>Deep breathing exercises</li>
+                        <li>Maintaining a strong support network</li>
+                        <li>Time management and prioritization</li>
+                        <li>Healthy sleep habits</li>
+                        <li>Engaging in hobbies and leisure activities</li>
+                    </ul>
+                    <div class="info-box">If stress becomes overwhelming, consider seeking help from a mental health professional.</div>
+
+                    <h4>Anxiety Disorders</h4>
+                    <p>Anxiety disorders are common but treatable. Symptoms can include:</p>
+                    <ul>
+                        <li>Excessive worry</li>
+                        <li>Restlessness or feeling on edge</li>
+                        <li>Difficulty concentrating</li>
+                        <li>Sleep disturbances</li>
+                        <li>Physical symptoms like rapid heartbeat, sweating, or trembling</li>
+                    </ul>
+                    <p>Treatment options include therapy (such as cognitive-behavioral therapy), medication, and lifestyle changes. Some anxiety disorders include generalized anxiety disorder, panic disorder, social anxiety disorder, and specific phobias.</p>
+
+                    <h4>Depression</h4>
+                    <p>Depression is more than just feeling sad. It's a serious mental health condition that can affect all aspects of life. Symptoms can include:</p>
+                    <ul>
+                        <li>Persistent sadness or emptiness</li>
+                        <li>Loss of interest in activities once enjoyed</li>
+                        <li>Changes in sleep or appetite</li>
+                        <li>Difficulty concentrating or making decisions</li>
+                        <li>Feelings of worthlessness or guilt</li>
+                        <li>Physical aches and pains</li>
+                        <li>Thoughts of death or suicide</li>
+                    </ul>
+                    <div class="info-box">Professional help is important for managing depression. Treatment often involves a combination of psychotherapy and medication.</div>
+
+                    <h4>Self-care and Mental Wellness</h4>
+                    <p>Self-care is crucial for mental health. This includes:</p>
+                    <ul>
+                        <li>Getting enough sleep (7-9 hours for most adults)</li>
+                        <li>Eating a balanced diet</li>
+                        <li>Exercising regularly</li>
+                        <li>Engaging in activities you enjoy</li>
+                        <li>Setting boundaries in personal and professional life</li>
+                        <li>Practicing gratitude and positive thinking</li>
+                        <li>Limiting alcohol and avoiding substance abuse</li>
+                    </ul>
+                    <p>It's also important to recognize when you need additional support and to seek help from mental health professionals when necessary.</p>
+
+                    <h4>Trauma and PTSD</h4>
+                    <p>Traumatic experiences can have lasting effects on mental health. Post-Traumatic Stress Disorder (PTSD) can develop after exposure to severe trauma. Symptoms may include:</p>
+                    <ul>
+                        <li>Intrusive memories or flashbacks</li>
+                        <li>Avoidance of trauma-related triggers</li>
+                        <li>Negative changes in thinking and mood</li>
+                        <li>Changes in physical and emotional reactions</li>
+                    </ul>
+                    <p>Treatment for trauma-related disorders often involves specialized therapies such as EMDR (Eye Movement Desensitization and Reprocessing) or trauma-focused cognitive-behavioral therapy.</p>
+
+                    <h4>Substance Use and Addiction</h4>
+                    <p>Substance use disorders can significantly impact mental health. They often co-occur with other mental health conditions. Signs of substance abuse may include:</p>
+                    <ul>
+                        <li>Inability to control substance use</li>
+                        <li>Continued use despite negative consequences</li>
+                        <li>Neglecting responsibilities due to substance use</li>
+                        <li>Withdrawal symptoms when not using the substance</li>
+                    </ul>
+                    <div class="info-box">Recovery from substance use disorders often requires professional help, including medical detoxification, counseling, and support groups.</div>
+                </div>
+            `;
+
+        case 'physical-health':
+            return baseStyles + `
+                <div class="topic-content">
+                    <h4>Nutrition</h4>
+                    <p>A balanced diet is key to good health. Focus on:</p>
+                    <ul>
+                        <li>Whole foods, including plenty of fruits and vegetables</li>
+                        <li>Whole grains and lean proteins</li>
+                        <li>Healthy fats from sources like nuts, seeds, and olive oil</li>
+                        <li>Adequate calcium and iron intake, particularly important for women</li>
+                        <li>Limiting processed foods, added sugars, and excessive salt</li>
+                    </ul>
+                    <div class="info-box">Consider consulting a registered dietitian for personalized nutrition advice, especially if you have specific health concerns or dietary restrictions.</div>
+
+                    <h4>Exercise and Physical Activity</h4>
+                    <p>Regular physical activity is crucial for maintaining health and preventing chronic diseases. Aim for:</p>
+                    <ul>
+                        <li>At least 150 minutes of moderate-intensity or 75 minutes of vigorous-intensity aerobic activity per week</li>
+                        <li>Muscle-strengthening activities involving all major muscle groups at least twice a week</li>
+                        <li>Balance and flexibility exercises, especially important as you age</li>
+                    </ul>
+                    <p>Find activities you enjoy to make exercise a sustainable part of your routine. This could include walking, swimming, cycling, yoga, or team sports.</p>
+
+                    <h4>Sleep Hygiene</h4>
+                    <p>Quality sleep is essential for overall health. Most adults need 7-9 hours of sleep per night. To improve sleep quality:</p>
+                    <ul>
+                        <li>Establish a regular sleep schedule</li>
+                        <li>Create a relaxing bedtime routine</li>
+                        <li>Ensure your sleeping environment is dark, quiet, and cool</li>
+                        <li>Limit screen time before bed</li>
+                        <li>Avoid caffeine, large meals, and alcohol close to bedtime</li>
+                    </ul>
+                    <div class="info-box">If you consistently have trouble sleeping, consult a healthcare provider as it may indicate an underlying sleep disorder.</div>
+
+                    <h4>Preventive Care</h4>
+                    <p>Regular check-ups and screenings are important for early detection and prevention of health issues. This includes:</p>
+                    <ul>
+                        <li>Annual physical exams</li>
+                        <li>Mammograms (frequency depends on age and risk factors)</li>
+                        <li>Pap smears and HPV tests</li>
+                        <li>Colonoscopies (starting at age 45 for average risk individuals)</li>
+                        <li>Bone density scans (for postmenopausal women and at-risk individuals)</li>
+                        <li>Blood pressure, cholesterol, and diabetes screenings</li>
+                        <li>Skin cancer screenings</li>
+                    </ul>
+                    <p>Stay up-to-date with vaccinations, including annual flu shots and other age-appropriate immunizations.</p>
+
+                    <h4>Cardiovascular Health</h4>
+                    <p>Heart disease is a leading cause of death for women. To maintain cardiovascular health:</p>
+                    <ul>
+                        <li>Monitor and control blood pressure and cholesterol levels</li>
+                        <li>Maintain a healthy weight</li>
+                        <li>Engage in regular aerobic exercise</li>
+                        <li>Don't smoke and avoid secondhand smoke</li>
+                        <li>Limit alcohol consumption</li>
+                        <li>Manage stress effectively</li>
+                    </ul>
+                    <div class="info-box">Be aware of heart attack symptoms in women, which can differ from those typically seen in men.</div>
+
+                    <h4>Bone Health</h4>
+                    <p>Women are at higher risk for osteoporosis, especially after menopause. To maintain strong bones:</p>
+                    <ul>
+                        <li>Ensure adequate calcium and vitamin D intake</li>
+                        <li>Engage in weight-bearing and resistance exercises</li>
+                        <li>Avoid smoking and excessive alcohol consumption</li>
+                        <li>Consider bone density screenings as recommended by your healthcare provider</li>
+                    </ul>
+                    <p>Medications may be prescribed for those at high risk of fractures.</p>
+                </div>
+            `;
+
+            case 'chronic-conditions':
+            return baseStyles + `
+                <div class="topic-content">
+                    <h4>Endometriosis</h4>
+                    <p>Endometriosis is a condition where tissue similar to the lining of the uterus grows outside the uterus. Symptoms can include:</p>
+                    <ul>
+                        <li>Severe pelvic pain, especially during menstruation</li>
+                        <li>Pain during intercourse</li>
+                        <li>Heavy menstrual bleeding</li>
+                        <li>Fertility issues</li>
+                    </ul>
+                    <p>Treatment options include pain management, hormone therapy, and in some cases, surgery. Lifestyle changes and alternative therapies may also help manage symptoms.</p>
+
+                    <h4>Polycystic Ovary Syndrome (PCOS)</h4>
+                    <p>PCOS is a hormonal disorder that can affect women's fertility and overall health. Symptoms can include:</p>
+                    <ul>
+                        <li>Irregular periods</li>
+                        <li>Excess hair growth (hirsutism)</li>
+                        <li>Acne</li>
+                        <li>Weight gain and difficulty losing weight</li>
+                        <li>Insulin resistance</li>
+                    </ul>
+                    <div class="info-box">Management often involves lifestyle changes, such as diet and exercise, and medications to regulate hormones and manage specific symptoms.</div>
+
+                    <h4>Breast Cancer</h4>
+                    <p>Breast cancer is one of the most common cancers affecting women. Risk factors include:</p>
+                    <ul>
+                        <li>Age (risk increases with age)</li>
+                        <li>Family history of breast cancer</li>
+                        <li>Certain genetic mutations (e.g., BRCA1 and BRCA2)</li>
+                        <li>Early menstruation or late menopause</li>
+                        <li>Hormone replacement therapy</li>
+                        <li>Obesity and lack of physical activity</li>
+                    </ul>
+                    <p>Regular self-exams and mammograms are important for early detection. Treatment options depend on the stage and type of cancer but can include surgery, radiation, chemotherapy, and targeted therapies.</p>
+
+                    <h4>Osteoporosis</h4>
+                    <p>Osteoporosis is a condition that weakens bones, making them more susceptible to fractures. It's more common in women, especially after menopause. Prevention and management include:</p>
+                    <ul>
+                        <li>Adequate calcium and vitamin D intake</li>
+                        <li>Regular weight-bearing and resistance exercises</li>
+                        <li>Avoiding smoking and excessive alcohol consumption</li>
+                        <li>Medications in some cases to increase bone density</li>
+                    </ul>
+                    <div class="info-box">Bone density scans are recommended for women 65 and older, or earlier for those with risk factors.</div>
+
+                    <h4>Autoimmune Diseases</h4>
+                    <p>Women are more susceptible to certain autoimmune diseases, including:</p>
+                    <ul>
+                        <li>Lupus</li>
+                        <li>Rheumatoid arthritis</li>
+                        <li>Multiple sclerosis</li>
+                        <li>Thyroid disorders (Hashimoto's thyroiditis, Graves' disease)</li>
+                    </ul>
+                    <p>These conditions often require long-term management with medications, lifestyle adjustments, and regular monitoring by healthcare professionals.</p>
+
+                    <h4>Cardiovascular Disease</h4>
+                    <p>While often considered a "man's disease," cardiovascular disease is a leading cause of death in women. Risk factors and prevention strategies include:</p>
+                    <ul>
+                        <li>Managing blood pressure, cholesterol, and diabetes</li>
+                        <li>Maintaining a healthy weight</li>
+                        <li>Regular exercise</li>
+                        <li>Not smoking</li>
+                        <li>Limiting alcohol intake</li>
+                        <li>Managing stress</li>
+                    </ul>
+                    <p>Women may experience different heart attack symptoms than men, including neck, jaw, shoulder, upper back or abdominal discomfort, shortness of breath, and nausea or vomiting.</p>
+                </div>
+            `;
+
+        case 'sexual-health':
+            return baseStyles + `
+                <div class="topic-content">
+                    <h4>STI Prevention and Testing</h4>
+                    <p>Practicing safe sex is crucial for preventing sexually transmitted infections (STIs). This includes:</p>
+                    <ul>
+                        <li>Using condoms and dental dams consistently</li>
+                        <li>Getting regular STI screenings</li>
+                        <li>Limiting sexual partners</li>
+                        <li>Communicating openly with sexual partners about sexual health</li>
+                        <li>Considering vaccination for HPV and Hepatitis B</li>
+                    </ul>
+                    <div class="info-box">Many STIs can be asymptomatic, so regular testing is important even without symptoms.</div>
+
+                    <h4>Sexual Wellness and Satisfaction</h4>
+                    <p>Sexual wellness encompasses physical, emotional, and social aspects of sexual health. This includes:</p>
+                    <ul>
+                        <li>Understanding your body and sexual responses</li>
+                        <li>Communicating openly with partners about desires and boundaries</li>
+                        <li>Addressing any physical or emotional concerns with a healthcare provider</li>
+                        <li>Exploring safe and consensual ways to enhance sexual pleasure</li>
+                        <li>Maintaining overall physical and mental health</li>
+                    </ul>
+                    <p>Remember that sexual needs and desires can change over time and with different life stages.</p>
+
+                    <h4>Menopause and Sexual Health</h4>
+                    <p>Menopause can bring changes to sexual health, including:</p>
+                    <ul>
+                        <li>Vaginal dryness and discomfort during intercourse</li>
+                        <li>Changes in libido</li>
+                        <li>Mood changes affecting intimacy</li>
+                    </ul>
+                    <p>Management options include lubricants, vaginal moisturizers, hormone therapy, and open communication with partners and healthcare providers.</p>
+
+                    <h4>Libido and Sexual Dysfunction</h4>
+                    <p>Libido can be affected by various factors including stress, health conditions, medications, and relationship issues. Sexual dysfunction may include:</p>
+                    <ul>
+                        <li>Low sexual desire</li>
+                        <li>Difficulty becoming aroused</li>
+                        <li>Inability to orgasm</li>
+                        <li>Pain during intercourse</li>
+                    </ul>
+                    <div class="info-box">If sexual concerns are impacting your quality of life, consider discussing them with a healthcare provider or a sex therapist.</div>
+
+                    <h4>Reproductive Coercion and Consent</h4>
+                    <p>Understanding and practicing consent is fundamental to sexual health. Be aware of reproductive coercion, which can include:</p>
+                    <ul>
+                        <li>Pressuring a partner to have or not have children</li>
+                        <li>Tampering with birth control</li>
+                        <li>Forcing pregnancy decisions</li>
+                    </ul>
+                    <p>If you're experiencing reproductive coercion or any form of sexual abuse, seek help from healthcare providers, counselors, or domestic violence resources.</p>
+                </div>
+            `;
+
+        case 'womens-rights':
+            return baseStyles + `
+                <div class="topic-content">
+                    <h4>Access to Healthcare</h4>
+                    <p>Equal access to quality healthcare is a fundamental right. This includes:</p>
+                    <ul>
+                        <li>Access to reproductive health services</li>
+                        <li>Mental health care</li>
+                        <li>Gender-specific health needs</li>
+                        <li>Affordable health insurance</li>
+                        <li>Culturally competent care</li>
+                    </ul>
+                    <div class="info-box">Advocacy for policies that promote women's health and address healthcare disparities is ongoing in many countries.</div>
+
+                    <h4>Reproductive Rights</h4>
+                    <p>Reproductive rights encompass the right to make informed decisions about one's reproductive health, including:</p>
+                    <ul>
+                        <li>Access to contraception</li>
+                        <li>Family planning services</li>
+                        <li>Safe and legal abortion services where applicable</li>
+                        <li>Comprehensive sex education</li>
+                        <li>Freedom from forced sterilization or contraception</li>
+                    </ul>
+                    <p>These rights are subject to ongoing legal and political debates in many regions.</p>
+
+                    <h4>Gender Bias in Medicine</h4>
+                    <p>Historical gender bias in medical research and treatment has led to gaps in understanding women's health. Efforts to address this include:</p>
+                    <ul>
+                        <li>Increasing representation of women in clinical trials</li>
+                        <li>Researching conditions that predominantly affect women</li>
+                        <li>Training healthcare providers to recognize and address gender-specific health concerns</li>
+                        <li>Advocating for policies that promote gender equity in healthcare</li>
+                    </ul>
+
+                    <h4>Workplace Rights and Health</h4>
+                    <p>Women's rights in the workplace intersect with health in several ways:</p>
+                    <ul>
+                        <li>Maternity leave and benefits</li>
+                        <li>Protection from workplace discrimination based on pregnancy or family responsibilities</li>
+                        <li>Accommodations for breastfeeding</li>
+                        <li>Equal pay, which can affect access to healthcare</li>
+                        <li>Protection from sexual harassment, which can impact mental health</li>
+                    </ul>
+
+                    <h4>Violence Against Women</h4>
+                    <p>Violence against women is a significant public health and human rights issue. Addressing this includes:</p>
+                    <ul>
+                        <li>Providing support services for survivors</li>
+                        <li>Implementing prevention programs</li>
+                        <li>Enacting and enforcing laws against domestic violence and sexual assault</li>
+                        <li>Training healthcare providers to recognize signs of abuse</li>
+                        <li>Promoting gender equality and challenging harmful gender norms</li>
+                    </ul>
+
+                    <h4>Advocacy and Empowerment</h4>
+                    <p>Empowering women to advocate for their health needs is crucial. This includes:</p>
+                    <ul>
+                        <li>Education about health rights and options</li>
+                        <li>Encouraging active participation in healthcare decisions</li>
+                        <li>Supporting women in leadership roles in healthcare and policy-making</li>
+                        <li>Promoting women's voices in medical research and health policy discussions</li>
+                    </ul>
+                    <div class="info-box">Remember that women's rights and health are interconnected with broader issues of gender equality and social justice.</div>
+                </div>
+            `;
+
+        default:
+            return baseStyles + '<div class="topic-content"><p>No content available for this topic.</p></div>';
+    }
+}
+
+      
+        const healthIssuesCtx = document.getElementById('healthIssuesChart').getContext('2d');
+        new Chart(healthIssuesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Anxiety', 'Depression', 'PCOS', 'Endometriosis', 'Breast Cancer'],
+                datasets: [{
+                    label: 'Prevalence (%)',
+                    data: [23, 20, 10, 10, 12],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Prevalence (%)'
+                        }
+                    }
+                }
+            }
+        });
+
+        const breastCancerCtx = document.getElementById('breastCancerChart').getContext('2d');
+        new Chart(breastCancerCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Under 45', '45-54', '55-64', '65-74', '75 and older'],
+                datasets: [{
+                    data: [9, 20, 26, 25, 20],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Age Distribution of Breast Cancer Cases (%)'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

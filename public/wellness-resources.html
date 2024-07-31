@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Health</title>
+   
+    <style>
+        /* Internal CSS */
+        :root {
+            --primary-color: #6b46c1;
+            --secondary-color: #9f7aea;
+            --text-color: #2d3748;
+            --background-color: #f7fafc;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-card h3 {
+            margin-top: 0;
+        }
+
+        .resource-card ul {
+            padding-left: 1.5rem;
+        }
+
+        .search-bar {
+            margin-bottom: 2rem;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .category-filter {
+            margin-bottom: 2rem;
+        }
+
+        .category-filter select {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Women's Health</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="health-topics.html">Health Topics</a></li>
+                <li><a href="wellness-resources.html">Wellness Resources</a></li>
+                <li><a href="expert-advice.html">Expert Advice</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="#" class="btn-signup">Sign Up</a></li>
+                <li><a href="#" class="btn-login">Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Comprehensive Wellness Resources</h1>
+        
+        <div class="search-bar">
+            <input type="text" id="resourceSearch" placeholder="Search resources...">
+        </div>
+
+        <div class="category-filter">
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="articles">Articles</option>
+                <option value="videos">Videos</option>
+                <option value="podcasts">Podcasts</option>
+                <option value="tools">Health Tools</option>
+                <option value="support">Support Groups</option>
+            </select>
+        </div>
+
+        <div class="resource-grid">
+            <div class="resource-card" data-category="articles">
+                <h3>In-Depth Articles</h3>
+                <p>Access our extensive library of well-researched articles on various women's health topics.</p>
+                <ul>
+                    <li>Understanding Premenstrual Syndrome (PMS)</li>
+                    <li>Navigating Endometriosis: Symptoms and Treatments</li>
+                    <li>Postpartum Depression: Signs, Causes, and Support</li>
+                    <li>Breast Health: Self-Exams and Early Detection</li>
+                </ul>
+            </div>
+
+            <div class="resource-card" data-category="videos">
+                <h3>Educational Videos</h3>
+                <p>Watch our curated collection of videos featuring expert advice and health demonstrations.</p>
+                <ul>
+                    <li>Yoga for Menstrual Pain Relief</li>
+                    <li>Understanding Your Menstrual Cycle</li>
+                    <li>Nutritional Tips for Women's Health</li>
+                    <li>Stress Management Techniques</li>
+                </ul>
+            </div>
+
+            <div class="resource-card" data-category="podcasts">
+                <h3>Health Podcasts</h3>
+                <p>Listen to our podcasts discussing various aspects of women's health with medical professionals.</p>
+                <ul>
+                    <li>The Hormone Balance Podcast</li>
+                    <li>Women's Mental Health Matters</li>
+                    <li>Fertility and Family Planning</li>
+                    <li>Navigating Menopause</li>
+                </ul>
+            </div>
+
+            <div class="resource-card" data-category="tools">
+                <h3>Interactive Health Tools</h3>
+                <p>Utilize our range of tools to track and manage your health effectively.</p>
+                <ul>
+                    <li>Menstrual Cycle Tracker</li>
+                    <li>Ovulation Calculator</li>
+                    <li>BMI Calculator</li>
+                    <li>Symptom Checker</li>
+                </ul>
+            </div>
+
+            <div class="resource-card" data-category="support">
+                <h3>Support Groups</h3>
+                <p>Connect with other women facing similar health challenges in our supportive community.</p>
+                <ul>
+                    <li>PCOS Support Circle</li>
+                    <li>Breast Cancer Survivors Network</li>
+                    <li>Infertility Support Group</li>
+                    <li>Menopause Peer Support</li>
+                </ul>
+            </div>
+
+            <div class="resource-card" data-category="articles">
+                <h3>Wellness Blog</h3>
+                <p>Explore our regularly updated blog covering a wide range of women's health and wellness topics.</p>
+                <ul>
+                    <li>Mindfulness and Women's Health</li>
+                    <li>Nutrition for Different Life Stages</li>
+                    <li>Exercise and Hormonal Balance</li>
+                    <li>Sleep Hygiene for Better Health</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Women's Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('resourceSearch');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const resourceCards = document.querySelectorAll('.resource-card');
+
+            function filterResources() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategory = categoryFilter.value;
+
+                resourceCards.forEach(card => {
+                    const cardText = card.textContent.toLowerCase();
+                    const cardCategory = card.dataset.category;
+                    const matchesSearch = cardText.includes(searchTerm);
+                    const matchesCategory = selectedCategory === 'all' || cardCategory === selectedCategory;
+
+                    if (matchesSearch && matchesCategory) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            searchInput.addEventListener('input', filterResources);
+            categoryFilter.addEventListener('change', filterResources);
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Health</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        .expert-card {
+            transition: transform 0.3s ease-in-out;
+        }
+        .expert-card:hover {
+            transform: translateY(-5px);
+        }
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .carousel-item {
+            display: none;
+        }
+        .carousel-item.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100">
+    <header class="bg-purple-800 text-white py-4">
+        <nav class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Women's Health</a>
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="hover:text-purple-200">Home</a></li>
+                <li><a href="health-topics.html" class="hover:text-purple-200">Health Topics</a></li>
+                <li><a href="wellness-resources.html" class="hover:text-purple-200">Wellness Resources</a></li>
+                <li><a href="expert-advice.html" class="hover:text-purple-200">Expert Advice</a></li>
+                <li><a href="about-us.html" class="hover:text-purple-200">About Us</a></li>
+                <li><a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700">Sign Up</a></li>
+                <li><a href="#" class="bg-white text-purple-800 px-4 py-2 rounded-full hover:bg-purple-100">Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8 text-center">Expert Advice</h1>
+        
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6 text-center">Our Expert Panel</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="expert-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="openModal('expert1')">
+                    <img src="assets/jane.png" alt="Dr. Juliet Smith" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Dr. Juliet Smith</h3>
+                    <p class="text-center text-gray-600 mb-4">Gynecologist</p>
+                    <p class="text-center">Specializes in reproductive health and family planning</p>
+                </div>
+                <div class="expert-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="openModal('expert2')">
+                    <img src="assets/emily.jpg" alt="Dr. Martha Johnson" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Dr. Martha Johnson</h3>
+                    <p class="text-center text-gray-600 mb-4">Mental Health Counselor</p>
+                    <p class="text-center">Focuses on women's mental health and well-being</p>
+                </div>
+                <div class="expert-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="openModal('expert3')">
+                    <img src="assets/sarah.jpg" alt="Elizabeth Thompson" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Elizabeth Thompson</h3>
+                    <p class="text-center text-gray-600 mb-4">Nutritionist</p>
+                    <p class="text-center">Expert in women's nutrition and dietary needs</p>
+                </div>
+                <div class="expert-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="openModal('expert4')">
+                    <img src="assets/chen.jpeg" alt="Dr. Kim Chen" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Dr. Kim Chen</h3>
+                    <p class="text-center text-gray-600 mb-4">Endocrinologist</p>
+                    <p class="text-center">Specializes in hormonal disorders and women's health</p>
+                </div>
+                <div class="expert-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="openModal('expert5')">
+                    <img src="assets/lee.jpg" alt="Dr. Paul Nkuchina" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Dr. Paul Nkuchina</h3>
+                    <p class="text-center text-gray-600 mb-4">Oncologist</p>
+                    <p class="text-center">Expert in women's cancer prevention and treatment</p>
+                </div>
+                <div class="expert-card bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="openModal('expert6')">
+                    <img src="assets/lisa.jpg" alt="Maria Zipole" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Maria Zipole</h3>
+                    <p class="text-center text-gray-600 mb-4">Fitness Specialist</p>
+                    <p class="text-center">Focuses on women's fitness and overall well-being</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6 text-center">Featured Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="assets/pms.jpg" alt="Article 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Understanding Premenstrual Syndrome (PMS)</h3>
+                        <p class="text-gray-600 mb-4">Dr. Jane Smith explains the symptoms, causes, and management strategies for PMS.</p>
+                        <a href="https://www.betterhealth.vic.gov.au/health/conditionsandtreatments/premenstrual-syndrome-pms" class="text-purple-600 hover:text-purple-800">Read More</a>
+                    </div>
+                </article>
+                <article class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="assets/ppd.png" alt="Article 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Coping with Postpartum Depression</h3>
+                        <p class="text-gray-600 mb-4">Dr. Emily Johnson discusses recognizing and addressing postpartum depression.</p>
+                        <a href="https://www.medicalnewstoday.com/articles/320005" class="text-purple-600 hover:text-purple-800">Read More</a>
+                    </div>
+                </article>
+                <article class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="assets/nutrition.webp" alt="Article 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Nutrition for Women's Health</h3>
+                        <p class="text-gray-600 mb-4">Sarah Thompson shares essential nutritional advice for women of all ages.</p>
+                        <a href="https://gynobmedgroup-com.translate.goog/the-importance-of-nutrition-in-womens-health/?_x_tr_sl=en&_x_tr_tl=sw&_x_tr_hl=sw&_x_tr_pto=sc" class="text-purple-600 hover:text-purple-800">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold mb-6 text-center">Upcoming Webinars</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div id="webinar-carousel" class="relative">
+                    <div class="carousel-item active">
+                        <h3 class="text-2xl font-semibold mb-2">Understanding Endometriosis</h3>
+                        <p class="text-gray-600 mb-4">Join Dr. Jane Smith for an in-depth discussion on endometriosis, its symptoms, and treatment options.</p>
+                        <p class="font-semibold">Date: July 15, 2024 | Time: 7:00 PM EST</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h3 class="text-2xl font-semibold mb-2">Managing Stress and Anxiety</h3>
+                        <p class="text-gray-600 mb-4">Dr. Emily Johnson will share effective strategies for managing stress and anxiety in daily life.</p>
+                        <p class="font-semibold">Date: July 22, 2024 | Time: 6:30 PM EST</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h3 class="text-2xl font-semibold mb-2">Nutrition for Hormonal Balance</h3>
+                        <p class="text-gray-600 mb-4">Learn about the impact of nutrition on hormonal health with nutritionist Sarah Thompson.</p>
+                        <p class="font-semibold">Date: July 29, 2024 | Time: 7:30 PM EST</p>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-4">
+                    <button onclick="changeSlide(-1)" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 mr-4">Previous</button>
+                    <button onclick="changeSlide(1)" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700">Next</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="expertModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center modal">
+        <div class="bg-white p-8 rounded-lg max-w-2xl w-full">
+            <h2 id="modalTitle" class="text-3xl font-semibold mb-4"></h2>
+            <p id="modalContent" class="text-gray-600 mb-4"></p>
+            <button onclick="closeModal()" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700">Close</button>
+        </div>
+    </div>
+
+    <footer class="bg-purple-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">About Us</h4>
+                    <p>Women's Health is dedicated to empowering women with knowledge and support for their health and well-being.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-purple-200">Home</a></li>
+                        <li><a href="health-topics.html" class="hover:text-purple-200">Health Topics</a></li>
+                        <li><a href="wellness-resources.html" class="hover:text-purple-200">Wellness Resources</a></li>
+                        <li><a href="expert-advice.html" class="hover:text-purple-200">Expert Advice</a></li>
+                        <li><a href="about-us.html" class="hover:text-purple-200">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Connect With Us</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://wa.me/254707214135?text=Hello%20Ivy,%20I'm%20interested%20in%20your%20web%20development%20services" class="hover:text-purple-200">Whatsapp</a></li>
+                        <li><a href="https://twitter.com/messages/compose?@i_kimenj" class="hover:text-purple-200">Twitter</a></li>
+                        <li><a href="https://ig.me/m/ivy_kimenju" class="hover:text-purple-200">Instagram</a></li>
+                        <li><a href="https://ig.me/m/ivy_kimenju" class="hover:text-purple-200">Instagram</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Contact Information</h4>
+                    <p>Tom Mboya Street, Nairobi City, 00100</p>
+                    <p>Phone: +254 707214135</p>
+                    <p>Email: naomi23wangari@gmail.com</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-purple-700 text-center">
+                <p>&copy; <b>IWK</b> 2024 Women's Health. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const expertData = {
+            expert1: {
+                name: "Dr. Jane Smith",
+                title: "Gynecologist",
+                content: "Dr. Jane Smith is a board-certified gynecologist with over 15 years of experience. She specializes in reproductive health, family planning, and menstrual disorders. Dr. Smith is passionate about educating women on their reproductive health and empowering them to make informed decisions about their bodies."
+            },
+            expert2: {
+                name: "Dr. Emily Johnson",
+                title: "Mental Health Counselor",
+                content: "Dr. Emily Johnson is a licensed mental health counselor with a focus on women's mental health. She has extensive experience in treating anxiety, depression, and stress-related disorders. Dr. Johnson is committed to promoting mental wellness and providing support for women facing various life challenges."
+            },
+            expert3: {
+                name: "Sarah Thompson",
+                title: "Nutritionist",
+                content: "Sarah Thompson is a registered dietitian and nutritionist specializing in women's health. She has helped countless women improve their overall health through personalized nutrition plans. Sarah is passionate about educating women on the importance of proper nutrition throughout different life stages."
+            },
+            expert4: {
+                name: "Dr. Olivia Chen",
+                title: "Endocrinologist",
+                content: "Dr. Olivia Chen is a board-certified endocrinologist with a special interest in women's hormonal health. She has extensive experience in treating conditions such as PCOS, thyroid disorders, and menopause-related issues. Dr. Chen is dedicated to helping women achieve hormonal balance and optimal health."
+            },
+            expert5: {
+                name: "Dr. Michael Lee",
+                title: "Oncologist",
+                content: "Dr. Michael Lee is a renowned oncologist specializing in women's cancers, particularly breast and ovarian cancer. With over 20 years of experience, he is at the forefront of cancer research and treatment. Dr. Lee is committed to improving cancer prevention, early detection, and treatment outcomes for women."
+            },
+            expert6: {
+                name: "Lisa Rodriguez",
+                title: "Fitness Specialist",
+                content: "Lisa Rodriguez is a certified fitness specialist with expertise in women's fitness and overall well-being. She has developed numerous fitness programs tailored to women's unique needs at different life stages. Lisa is passionate about empowering women to achieve their fitness goals and maintain a healthy lifestyle."
+            }
+        };
+
+        function openModal(expertId) {
+            const modal = document.getElementById('expertModal');
+            const title = document.getElementById('modalTitle');
+            const content = document.getElementById('modalContent');
+            
+            const expert = expertData[expertId];
+            title.textContent = `${expert.name} - ${expert.title}`;
+            content.textContent = expert.content;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('expertModal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+        }
+
+      
+        updateCarousel();
+
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+       
+        document.addEventListener("DOMContentLoaded", function() {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

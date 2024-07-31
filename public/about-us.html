@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Health</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid #8B5CF6;
+            margin-bottom: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            top: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+            background-color: #8B5CF6;
+            border-radius: 50%;
+        }
+        .team-member:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100">
+    <header class="bg-purple-800 text-white py-4 sticky top-0 z-50">
+        <nav class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Women's Health</a>
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="hover:text-purple-200">Home</a></li>
+                <li><a href="health-topics.html" class="hover:text-purple-200">Health Topics</a></li>
+                <li><a href="wellness-resources.html" class="hover:text-purple-200">Wellness Resources</a></li>
+                <li><a href="expert-advice.html" class="hover:text-purple-200">Expert Advice</a></li>
+                <li><a href="about-us.html" class="hover:text-purple-200">About Us</a></li>
+                <li><a href="#" class="bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700">Sign Up</a></li>
+                <li><a href="#" class="bg-white text-purple-800 px-4 py-2 rounded-full hover:bg-purple-100">Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8 text-center">About Women's Health</h1>
+        
+        <section class="mb-16">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/2 pr-0 md:pr-8 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-semibold mb-4">Our Mission</h2>
+                    <p class="mb-4">Women's Health is dedicated to empowering women with knowledge, support, and resources to address the main health issues affecting them in the 21st century.</p>
+                    <p class="mb-4">Our mission is to provide accurate, up-to-date information and create a supportive community where women can learn, share, and grow together.</p>
+                    <p>We work with leading experts in various fields of women's health to ensure that our users have access to the best possible advice and support.</p>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <img src="assets/logo.jpg" alt="About Us" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-semibold mb-8 text-center">Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold mb-2">2020 - Foundation</h3>
+                    <p>Women's Health was founded with the vision of creating a comprehensive online resource for women's health information.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold mb-2">2021 - Expansion</h3>
+                    <p>We expanded our team of experts and launched our community forums to foster peer support and discussions.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold mb-2">2022 - Partnerships</h3>
+                    <p>Strategic partnerships were formed with leading healthcare providers and research institutions to enhance our content quality.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold mb-2">2023 - Mobile App Launch</h3>
+                    <p>We launched our mobile app to provide easy access to health information and tools on-the-go.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold mb-2">2024 - Global Reach</h3>
+                    <p>Today, we're proud to serve millions of women worldwide, providing support in multiple languages.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-semibold mb-8 text-center">Our Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="team-member relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="assets/p5.jpeg" alt="Team Member 1" class="w-full">
+                    <div class="overlay absolute inset-0 bg-purple-800 bg-opacity-75 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-semibold mb-2">Dr. Sarah Johnson</h3>
+                            <p class="mb-2">Founder & CEO</p>
+                            <div class="flex justify-center space-x-4">
+                                <a href="#" class="text-white hover:text-purple-200"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-white hover:text-purple-200"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="assets/lisa.jpg" alt="Team Member 2" class="w-full">
+                    <div class="overlay absolute inset-0 bg-purple-800 bg-opacity-75 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-semibold mb-2">Emily Chen</h3>
+                            <p class="mb-2">Chief Medical Officer</p>
+                            <div class="flex justify-center space-x-4">
+                                <a href="#" class="text-white hover:text-purple-200"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-white hover:text-purple-200"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="assets/background.png.jpg" alt="Team Member 3" class="w-full">
+                    <div class="overlay absolute inset-0 bg-purple-800 bg-opacity-75 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <div class="text-center text-white p-4">
+                            <h3 class="text-xl font-semibold mb-2">Ivy Kimenju</h3>
+                            <p class="mb-2">Head of Technology</p>
+                            <div class="flex justify-center space-x-4">
+                                <a href="#" class="text-white hover:text-purple-200"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="text-white hover:text-purple-200"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-semibold mb-8 text-center">Our Impact</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i class="fas fa-users text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">5 Million+</h3>
+                    <p>Women Empowered</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i class="fas fa-globe text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">100+ Countries</h3>
+                    <p>Global Reach</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <i class="fas fa-award text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">15+ Awards</h3>
+                    <p>For Excellence in Health Education</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-semibold mb-8 text-center">Join Our Mission</h2>
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <p class="mb-6 text-center">Help us empower more women with knowledge and support. Join our community or consider supporting our mission.</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300">Join Our Community</a>
+                    <a href="#" class="bg-purple-200 text-purple-800 px-6 py-3 rounded-full hover:bg-purple-300 transition duration-300">Support Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-purple-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">About Us</h4>
+                    <p>Women's Health is dedicated to empowering women with knowledge and support for their health and well-being.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-purple-200">Home</a></li>
+                        <li><a href="health-topics.html" class="hover:text-purple-200">Health Topics</a></li>
+                        <li><a href="wellness-resources.html" class="hover:text-purple-200">Wellness Resources</a></li>
+                        <li><a href="expert-advice.html" class="hover:text-purple-200">Expert Advice</a></li>
+                        <li><a href="about-us.html" class="hover:text-purple-200">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Connect With Us</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://wa.me/254707214135?text=Hello%20Ivy,%20I'm%20interested%20in%20your%20web%20development%20services" class="hover:text-purple-200">Whatsapp</a></li>
+                        <li><a href="https://twitter.com/messages/compose?@i_kimenj" class="hover:text-purple-200">Twitter</a></li>
+                        <li><a href="https://ig.me/m/ivy_kimenju" class="hover:text-purple-200">Instagram</a></li>
+                        <li><a href="https://ig.me/m/ivy_kimenju" class="hover:text-purple-200">Instagram</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Contact Information</h4>
+                    <p>Tom Mboya Street, Nairobi City, 00100</p>
+                    <p>Phone: +254 707214135</p>
+                    <p>Email: naomi23wangari@gmail.com</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-purple-700 text-center">
+                <p>&copy; <b>IWK</b> 2024 Women's Health. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+     
+        document.addEventListener("DOMContentLoaded", function() {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
